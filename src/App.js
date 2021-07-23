@@ -1,29 +1,69 @@
-import React from 'react';
 import './App.css';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import { getBlogs, addBlog } from './redux/actions/blogs'; 
+
 
 function App() {
+  const initialState = { author : "" , text : "" };
+  const [formData, setFormData] = useState(initialState);
+  const dispatch = useDispatch();
+  const blogs = useSelector(state => state.blogsReducer?.blogsData?.b);
+  console.log(blogs);
+
+  useEffect(()=>{
+    dispatch(getBlogs())
+  },[formData])
+
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    console.log(formData);
+    dispatch(addBlog(formData))
+    .then(res=>{
+      console.log(res);
+    })
+  }
 
   return(
       <div className="App">
-          <div className="col-3 container-login bg-white">
-            <img src="https://pisoftsolution.com/media/04062021183428-logo_-_Copy-removebg-preview1.png" className="pisoft-logo"></img>
-            <div>
-              <input type="text" placeholder="Email Address" className="input-box">
-              </input>
-
-              <input type="text" placeholder="Password" className="input-box">
-                </input><br/>
-
-              <input id="remember" name="remember" type="checkbox"></input>
-              <label>Remember me</label><br/>
-
-               <button className="button"> Login</button><br/><br/>
-
-               <a href="https://pisoftsolution.com/password/reset" className="reset">Forget your password?</a><br/><br/>
-              <a href="https://pisoftsolution.com/register" className="reset">Signup for an account</a>
-
-            </div>
-          </div>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input 
+             name="author"
+             placeholder="Author Name"
+             type="text"
+             className=""
+             onChange={(e)=>{
+               setFormData({
+                 ...formData,
+                 [e.target.name] : e.target.value,
+               })
+             }}
+             required 
+             /><br/><br/>
+             <textarea
+             name="text"
+             placeholder="Enter Blog Here"
+             onChange={(e)=>{
+              setFormData({
+                ...formData,
+                [e.target.name] : e.target.value,
+              })
+            }}
+             required 
+             /><br/><br/>
+             <button type="submit">save</button>
+          </form>
+        </div>
+        {blogs && blogs.length>0 ?
+        blogs.map(b=>{
+          return(
+            <>
+            <p>{b.text}</p>
+            <p>{b.author}</p>
+            </>
+          )
+        }): ''}
       </div>
   )
 }
