@@ -17,9 +17,9 @@ function App() {
               <input id="remember" name="remember" type="checkbox"></input>
               <label>Remember me</label><br/>
 
-               <button className="button"> Login</button>
+               <button className="button"> Login</button><br/><br/>
 
-               <a href="https://pisoftsolution.com/password/reset" className="reset">Forget your password?</a>
+               <a href="https://pisoftsolution.com/password/reset" className="reset">Forget your password?</a><br/><br/>
               <a href="https://pisoftsolution.com/register" className="reset">Signup for an account</a>
 
             </div>
