@@ -90,7 +90,11 @@ function App() {
                       <td>This is Text</td>
                       <td>
                         <div>
-                        <button className="btn1">Edit</button>
+                        <button  className="btn1" onClick={togglePopup}>Edit</button>
+                        {showBulkAdd ? (
+                       <Popup text="Close Me" closePopup={togglePopup} />
+                        ) : null}
+                        {/* <button className="btn1">Edit</button> */}
                         <button className="btn2">Delete</button>
                       </div>
 
