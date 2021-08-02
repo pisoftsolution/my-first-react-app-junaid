@@ -5,7 +5,7 @@ function Popup({ closePopup }) {
   return (
     <div className="popup">
       <div className="popup_inner">
-        <h1>ADD USER</h1>
+        <h1>Edit User</h1>
        <form>
            <label>Author</label>
            <input type="text" placeholder="Enter author name" /><br /><br />

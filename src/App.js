@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { getBlogs, addBlog, deleteBlog } from './redux/actions/blogs'; 
 import Popup from './Popup';
+import {Button} from 'react-bootstrap'
 
 
 function App() {
@@ -94,12 +95,6 @@ function App() {
                   {showBulkAdd ? (
                     <Popup text="Close Me" closePopup={togglePopup} />
                       ) : null}
-
-              <button
-                className="btn1"
-              >
-                Edit
-              </button>
 
               <button
                 className="btn2"
