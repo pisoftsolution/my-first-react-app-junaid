@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { getBlogs, addBlog } from './redux/actions/blogs'; 
+import { getBlogs, addBlog, deleteBlog } from './redux/actions/blogs'; 
 import Popup from './Popup';
 
 
@@ -13,9 +13,13 @@ function App() {
   const blogs = useSelector(state => state.blogsReducer?.blogsData?.b);
   console.log(blogs);
 
+  const deleteHandler = (data) => {
+    dispatch(deleteBlog({ id: data }));
+  }
+
   useEffect(()=>{
     dispatch(getBlogs())
-  },[formData])
+  },[formData, blogs])
 
   const handleSubmit = (e) =>{
     e.preventDefault();
@@ -35,71 +39,81 @@ function App() {
         <div>
           <form onSubmit={handleSubmit}>
             <input 
-             name="author"
-             placeholder="Author Name"
-             type="text"
-             className=""
-             onChange={(e)=>{
-               setFormData({
-                 ...formData,
-                 [e.target.name] : e.target.value,
-               })
-             }}
+                name="author"
+                placeholder="Author Name"
+                type="text"
+                className=""
+                onChange={(e)=>{
+                  setFormData({
+                    ...formData,
+                    [e.target.name] : e.target.value,
+                  })
+                }}
              required 
              /><br/><br/>
+
              <textarea
-             name="text"
-             placeholder="Enter Blog Here"
-             onChange={(e)=>{
-              setFormData({
-                ...formData,
-                [e.target.name] : e.target.value,
-              })
-            }}
+                name="text"
+                placeholder="Enter Blog Here"
+                onChange={(e)=>{
+                  setFormData({
+                    ...formData,
+                    [e.target.name] : e.target.value,
+                  })
+                }}
              required 
              /><br/><br/>
-             <button type="submit">save</button>
+
+             <button
+              type="submit"
+            >
+               save</button>
           </form>
-        {/* <button className="userBtn">Add User</button> */}
-        <button  className="userBtn" onClick={togglePopup}>Add User</button>
-                {showBulkAdd ? (
-                  <Popup text="Close Me" closePopup={togglePopup} />
-                ) : null}
         </div>
-      
+
+        <table>
+            <tr>
+                <th>Author</th>
+                <th >Text</th>
+                <th >Actions </th>
+
+            </tr>
         {blogs && blogs.length>0 ?
         blogs.map(b=>{
           return(
            <>
-            {/* <p>{b.text}</p>
-            <p>{b.author}</p> */}
-  
+            <tr key={b._id}>
+              <td>{b.author}</td>
+              <td>{b.text}</td>
+              <button
+              className="btn1"
+              onClick={togglePopup}
+              >
+                Edit
+              </button>
+                  {showBulkAdd ? (
+                    <Popup text="Close Me" closePopup={togglePopup} />
+                      ) : null}
+
+              <button
+                className="btn1"
+              >
+                Edit
+              </button>
+
+              <button
+                className="btn2"
+                onClick={() => deleteHandler(b._id)}
+                >
+                  Delete
+                </button>
+            </tr>
             </>
           )
         }): ''}
-
-                  <table>
-                    <tr>
-                      <th>Author</th>
-                      <th >Text</th>
-                      <th >Actions </th>
-
-                    </tr>
-                    <tr>
-                      <td>junaid</td>
-                      <td>this is text</td>
-                      <td>
-                        
-                        <div>
-                        
-                        <button className="btn1">Edit</button>
-                        <button className="btn2">Delete</button>
-                      </div>
-
-                      </td>
-                    </tr>
-                  </table>
+        </table>
       </div>
   )
 }
+
 export default App;

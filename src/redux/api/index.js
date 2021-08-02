@@ -8,3 +8,7 @@ export const getBlogs = () =>{
 export const addBlog = (formData) =>{
     return axios.post(`${url}/Blogs/add`, formData)
 };
+
+export const deleteBlog = (data) =>{
+    return axios.delete(`${url}/Blogs/blog?id=${data.id}`, data)
+};
