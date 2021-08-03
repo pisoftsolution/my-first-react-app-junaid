@@ -4,7 +4,6 @@ table {
   justify-content: center;
   display: inline-table;
   margin-top: 27px;
-
   width: 50%;
 }
 
@@ -17,15 +16,30 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
 .App {
     text-align: center;
-  }
+}
+
+  .App {
+    width: 50%;
+    margin-left: 368px;
+}
   
-  .App-logo {
+.App-logo {
     height: 40vmin;
     pointer-events: none;
-  }
-  button.btn1  {
+}
+
+th {
+    padding-right: 121px;
+}
+
+button.btn2.btn.btn-primary {
+  margin-right: 83px;
+}
+
+button.btn1  {
     margin-right: 10px;
     font-size: 14px;
     color: #fff;
@@ -37,17 +51,19 @@ tr:nth-child(even) {
     width: 47px;
     height: 32px;
 }
+
 button.btn2 {
-  color: #fff;
+    color: #fff;
     background-color: #dc3545;
     border-color: #dc3545;
-  font-size: 14px;
-  text-decoration: none;
+    font-size: 14px;
+    text-decoration: none;
     border: none;
     padding: 4px;
     width: 55px;
     height: 32px;
 }
+
 .userBtn {
   margin-left: -91vh;
   padding: 9px;
@@ -67,6 +83,7 @@ button.btn2 {
   margin: auto;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
 .popup_inner {
   position: absolute;
   padding: 20px;
@@ -79,6 +96,7 @@ button.btn2 {
   width:33%;
   height: 70%;
 }
+
 .popupButtonClose {
   color: #3c8dd5;
   background: none;
@@ -90,6 +108,7 @@ button.btn2 {
   margin-top: 150px;
   /* margin-right: 50px; */
 }
+
 .popupButtonSave {
   color: white;
   background-color: #3c8dd5;
@@ -104,11 +123,13 @@ input[placeholder="Enter author name" ] {
   width: 86%;
   padding: 17px;
 }
+
 input[placeholder="Enter blog here" ] {
   /* height: 37%; */
   width: 86%;
   padding: 17px;
 }
+
 button.submit1 {
   margin-top: 35%;
   margin-left: 75%;
@@ -117,6 +138,7 @@ button.submit1 {
 label {
   margin-right: 92%;
 }
+
   @media (prefers-reduced-motion: no-preference) {
     .App-logo {
       animation: App-logo-spin infinite 20s linear;
@@ -147,12 +169,36 @@ label {
     }
   }
 
+  .ReactModal__Content.ReactModal__Content--after-open {
+    width: 39%;
+    margin-left: 406px;
+    height: 90%;
+    background-color: black;
+}
 
 
 
+element.style {
+  position: fixed;
+  inset: 0px;
+  background-color: rgb(0 0 0 / 25%);
+}
 
 
+  /* .table>:not(caption)>*>* {
+    padding: .5rem .5rem;
+    background-color: var(--bs-table-bg);
+    border-bottom-width: 1px;
+    box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+} */
 
+button.btn8.btn.btn-primary {
+  margin-left: 400px;
+  margin-top: -50px;
+  margin-bottom: 19px;
+}
 
-
-
+button.btn9.btn.btn-primary {
+  margin-left: 300px;
+  margin-top: 166px;
+}
