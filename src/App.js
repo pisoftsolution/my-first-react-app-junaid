@@ -74,7 +74,10 @@ function App() {
                save</button>
           </form>
         </div>
-
+          {/* <Button onClick={togglePopup} className="btnuser" style={{backgroundColor:"green"}}>Add User</Button><br/><br/>
+          {showBulkAdd ? (
+          <Popup text="Close Me" closePopup={togglePopup} />
+        ) : null} */}
         <Table striped bordered hover width="50%">
          
             <tr>
