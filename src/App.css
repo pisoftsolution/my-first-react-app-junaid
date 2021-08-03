@@ -172,7 +172,7 @@ label {
   .ReactModal__Content.ReactModal__Content--after-open {
     width: 39%;
     margin-left: 406px;
-    height: 90%;
+    height: 75%;
     background-color: black;
 }
 
@@ -199,6 +199,6 @@ button.btn8.btn.btn-primary {
 }
 
 button.btn9.btn.btn-primary {
-  margin-left: 300px;
-  margin-top: 166px;
+  margin-left: 332px;
+  margin-top: 92px;
 }
