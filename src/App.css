@@ -170,13 +170,15 @@ label {
   }
 
   .ReactModal__Content.ReactModal__Content--after-open {
-    width: 39%;
+    width: 37%;
     margin-left: 406px;
-    height: 75%;
+    height: 80%;
     background-color: black;
 }
 
-
+h1 {
+  margin-left: 134px;
+}
 
 element.style {
   position: fixed;

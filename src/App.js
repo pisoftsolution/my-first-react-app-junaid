@@ -95,6 +95,7 @@ function App() {
               <Button onClick={()=> setModalIsOpen(true)} className="btn1">Edit</Button>
               <Modal isOpen={modalIsOpen} width="60%">
               <Form>
+                <h1>Edit User</h1>
                   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Author Name</Form.Label>
                     <Form.Control type="text" placeholder="enter author name" />
