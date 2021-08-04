@@ -55,7 +55,6 @@ function App() {
                 }}
              required 
              /><br/><br/>
-
              <textarea
                 name="text"
                 placeholder="Enter Blog Here"
@@ -67,7 +66,6 @@ function App() {
                 }}
              required 
              /><br/><br/>
-
              <button
               type="submit"
             >
@@ -79,19 +77,16 @@ function App() {
           <Popup text="Close Me" closePopup={togglePopup} />
         ) : null} */}
         <Table striped bordered hover width="50%">
-         
             <tr>
                 <th>Author</th>
                 <th >Text</th>
                 <th >Actions </th>
 
             </tr>
-           
         {blogs && blogs.length>0 ?
         blogs.map(b=>{
           return(
            <>
-           
             <tr key={b._id}>
               <td>{b.author}</td>
               <td>{b.text}</td>
